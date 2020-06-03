@@ -1,0 +1,30 @@
+//vertex position
+gl_Position = ftransform();
+
+//vertex color
+gl_Color;
+
+//view vector
+viewPos = (gl_ModelViewMatrix * gl_Vertex).xyz;
+
+//world normal
+gl_Normal;
+
+//vertex normal relative to camera
+gl_NormalMatrix * gl_Normal;
+
+//return texture color
+## vertex
+
+texcoord = gl_MultiTexCoord0;
+
+##frag
+
+varying vec4 color;
+varying vec4 texcoord;
+
+void main(){
+	vec4 blockColor = texture2D(texture,texcoord.st);
+
+	 gl_FragData[0] = color;
+}
